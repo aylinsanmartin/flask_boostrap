@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} User page {% endblock %}
+{% block body %}
+<h1 class="text-center">Agrega un nuevo mensaje</h1>
+<form method="post">
+    <label for="title" class="form-label">Titulo</label>
+    <input type="text" name="title" id="title"
+           placeholder="Titulo del mensaje"
+           value="{{ request.form['title'] }}" class="form-control"></input>
+    <label for="picture" class="form-label">Foto</label>
+    <input type="text" name="picture" id="picture"
+           placeholder="Agrega tu foto"
+           value="{{ request.form['picture'] }}"class="form-control"></input>
+    <label for="content" class="form-label">Contenido del mensaje</label>
+    <textarea name="content" id="content"
+              placeholder="Contenido del mensaje"
+              rows="15"
+              cols="60"
+              class="form-control"
+              >{{ request.form['content'] }}</textarea>
+    <button type="submit"class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
+
+
+
+
+
+
+

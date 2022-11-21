@@ -3,8 +3,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[[source]]
+url = "grate"
+verify_ssl = false
+name = ""
+
 [packages]
 flask = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
