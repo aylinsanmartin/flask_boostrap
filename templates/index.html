@@ -5,19 +5,7 @@
 <main class="flex-shrink-0">
   <div class="container">
     <h1>Aplicación Web con Flask y Bootstrap</h1>
-    <a href="{{ url_for('create')}}" class="btn btn-primary">nuevo mensaje</a>
-    {% for message in messages %}
-        <div class='message'>
-            <h3>{{ message['title'] }}</h3>
-            <img src="{{message['picture']}}" alt="{{message['title']}}" class="img img-fluid">
-            <p>{{ message['content'] }}</p>
-            <a href="{{url_for('update', id = message.id)}}">actualizar</a>
-            <form action="{{url_for('delete')}}" method="post" consubmit="return confirm ('Estas seguro?')">
-              <input type="hidden" name="id" value="{{message.id}}">
-              <input type="submit" value="Eliminar" class="btn btn-danger">
-              </form>
-        </div>
-    {% endfor %}
+
       </div>
 </main>
 {% endblock %}
