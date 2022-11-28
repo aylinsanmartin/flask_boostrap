@@ -6,6 +6,7 @@
   <div class="container">
     <h1>Aplicación Web con Flask y Bootstrap</h1>
     <a href="{{ url_for('create')}}" class="btn btn-primary">nuevo mensaje</a>
+    
     {% for message in messages %}
         <div class='message'>
             <h3>{{ message['title'] }}</h3>
