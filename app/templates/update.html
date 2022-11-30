@@ -1,24 +1,33 @@
 {% extends 'base.html' %}
+
 {% block title %} User page {% endblock %}
+
 {% block body %}
-<h1 class="text-center"> actualiza el mensaje</h1>
+<h1>actualiza el mensaje</h1>
 <form method="post">
-    <label for="title" class="form-label">Titulo</label>
+    <label for="title">Titulo</label>
+    <br>
     <input type="text" name="title" id="title"
            placeholder="Titulo del mensaje"
-           value="{{ message.title }}" class="form-control"></input>
-    <label for="picture" class="form-label">Foto</label>
-    <input type="text" name="picture" id="picture"
-           placeholder="Agrega tu foto"
-           value="{{ message.picture }}" class="form-control"></input>
-    <label for="content" class="form-label">contenido del mensaje</label>
+           value="{{message.title }}"></input>
+    <br>
+
+    <label for="picture">Foto</label>
+    <br>
+    <input type="text" name="picture" id="picturee"
+           placeholder="Agrega tu Foto"
+           value="{{message.picture }}"></input>
+    <br>
+
+    <label for="content">Contenido del mensaje</label>
+    <br>
     <textarea name="content" id="content"
               placeholder="Contenido del mensaje"
               rows="15"
               cols="60"
-              class="form-control"
-              >{{ message.content }}</textarea>
-    <button type="submit" class="btn btn-primary">Submit</button>
+              >{{message.content }}</textarea>
+    <br>
+    <button type="submit">Submit</button>
 </form>
 {% endblock %}
 
