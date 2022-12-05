@@ -1,11 +1,13 @@
-from flask import render_template,request
+from flask import render_template, request, flash,redirect
 from app.messages import bp
+from app.extensions import db
 from app.models.message import Message
 
 @bp.route('/')
 def index():
     messages = Message.query.all()
     return render_template('messages/index.html', messages = messages)
+
 @bp.route('/create', methods = ('GET', 'POST'))
 def create():
     if request.method == 'POST':
@@ -22,9 +24,11 @@ def create():
            db.session.commit()
            return redirect(url_for('index'))
     return render_template('create.html')
+
 @bp.route('/usuario/<name>')
 def user(name):
     return render_template('user.html', user = name)
+
 @bp.route('/<id>/update', methods =('GET', 'POST'))
 def update(id):
     message = Message.query.filter_by(id = id).first()
@@ -36,6 +40,7 @@ def update(id):
             db.session.commit()
             return redirect('/')
     return render_template('update.html', message = message)
+
 @bp.route('/delete', methods = ['POST'])
 def delete():
     id = request.form['id']
