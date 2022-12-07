@@ -1,8 +1,9 @@
 from app.auth import bp
 from flask import render_template, request, flash, redirect, url_for
-from flask_login import login_user
+from flask_login import login_user, login_required, logout_user
 from app.models.user import User
 from app.extensions import db
+
 @bp.route('/')
 def index():
     users = User.query.all()
@@ -24,7 +25,8 @@ def register():
             user = User(username = username, email = email, password = password)
             db.session.add(user)
             db.session.commit()
-            return redirect(url_for('auth.index'))
+            flash('Usuario creado correctamente')
+            return redirect(url_for('auth.login'))
     return render_template('auth/register.html')
 @bp.route('/login', methods =('GET', 'POST'))
 def login():
@@ -47,6 +49,20 @@ def login():
                 return redirect(next)
             flash('usuario o password incorrecto')
     return render_template('auth/login.html')
+
+@bp.route('logout')
+@login_required
+def logout():
+    logout_user()
+    flash('Sesión cerrada')
+    return redirect('/auth/login')
+
+
+
+
+
+
+
 
 
 
