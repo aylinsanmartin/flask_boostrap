@@ -3,8 +3,6 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
-
 [packages]
 flask = "*"
 psycopg2 = "*"
@@ -12,6 +10,7 @@ flask-sqlalchemy = "*"
 flask-migrate = "*"
 python-dotenv = "*"
 flask-login = "*"
+waitress = "*"
 
 [dev-packages]
 
