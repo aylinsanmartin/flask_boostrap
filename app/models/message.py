@@ -7,6 +7,8 @@ class Message(db.Model):
     content = db.Column(db.Text, nullable=False)
     picture = db.Column(db.String(300))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    price = db.Column(db.String)
+    link = db.Column(db.String(100))
 
     def __repr__(self):
         return f'<Message {self.title}>'
